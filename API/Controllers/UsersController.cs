@@ -2,16 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using API.Data;
 using API.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
+namespace API.Controllers;
 
-namespace API;
-
-    [ApiController]
-    [Route("api/[controller]")]
-
-    public class UsersController(DataContext context) : ControllerBase
+    public class UsersController(DataContext context) : BaseApiController
     {
 
+    
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
