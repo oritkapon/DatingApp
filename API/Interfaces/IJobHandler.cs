@@ -1,10 +1,11 @@
+using System.Threading.Tasks;
 using API.Entities;
+using API.Enums;
 
 namespace API.Interfaces;
 
 public interface IJobHandler
 {
-    string CanHandleType { get; }
-    bool CanHandle(string jobType);
+    JobType CanHandleType { get; }
     Task HandleAsync(Job job);
 }
