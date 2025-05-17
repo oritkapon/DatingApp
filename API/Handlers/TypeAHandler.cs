@@ -9,10 +9,14 @@ namespace API.Handlers;
 
 public class TypeAHandler : IJobHandler
 {
-    private readonly ILogger<TypeBHandler> _logger;
+    private readonly ILogger<TypeAHandler> _logger;
     public JobType CanHandleType => JobType.A;
 
-    
+    public TypeAHandler(ILogger<TypeAHandler> logger) 
+    {
+        _logger = logger;
+    }
+
     public async Task HandleAsync(Job job)
     {
         _logger.LogInformation("Starting processing job {JobId} of type A.", job.ID);
